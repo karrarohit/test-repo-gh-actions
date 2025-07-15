@@ -8,8 +8,8 @@ jobs:
         run: echo "hello earth"
       - name: multi line command
         run:
-          uname -m
-          uname -r
+          node -v
+          npm -v
 
   parallel-job-on-macos:
     runs-on: macos-latest
