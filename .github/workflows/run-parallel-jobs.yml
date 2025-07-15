@@ -8,8 +8,8 @@ jobs:
         run: echo "hello earth"
       - name: multi line command
         run:
-          python -v
-          ls -l
+          uname -m
+          uname -r
 
   parallel-job-on-macos:
     runs-on: macos-latest
