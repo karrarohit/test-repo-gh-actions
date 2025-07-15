@@ -1,0 +1,27 @@
+name: second workflow to run parallel jobs
+on: push
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "hello earth"
+      - name: multi line command
+        run:
+          python -v
+          ls -l
+
+  parallel-job-on-macos:
+    runs-on: macos-latest
+    steps:
+      - name: view SW version
+        run: sw_vers
+
+  dependant-job:
+    runs-on: windows-latest
+    needs: run-shell-commands
+    steps:
+      - name: echo a string
+        run: Write-Output "Windows String"
+      - name: Error step
+        run: does not exist
